@@ -1,0 +1,578 @@
+<!doctype html>
+<html translate="no">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="keywords" content="LigaAI">
+    <meta name="description" content="LigaAI">
+    <meta name="msapplication-square150x150logo"
+          content="https://static.ligaicdn.com/static/images/SAAS_MODULES/share-icon.png">
+    <meta name="google" value="notranslate">
+    <title>LigaAI</title>
+    <link rel="icon" href="/app/favicon.ico"/>
+    <link rel="preload" href="https://static.ligaicdn.com/static/iconfont/font-awesome.min.css" as="style"
+          onload='this.onload=null,this.rel="stylesheet"'>
+    <link rel="preload" href="https://static.ligaicdn.com/static/css/simplemde.min.css" as="style"
+          onload='this.onload=null,this.rel="stylesheet"'>
+    <link rel="preload" href="https://static.ligaicdn.com/static/iconfont/font_2079267_q0a6os4sq3p/iconfont.css"
+          as="style" onload='this.onload=null,this.rel="stylesheet"'>
+    <link rel="preload" href="https://static.ligaicdn.com/static/iconfont/font_20220711_1320f383c486f505/liga-icon.css"
+          as="style" onload='this.onload=null,this.rel="stylesheet"'>
+    <link rel="preload" href="https://static.ligaicdn.com/static/css/animate.min.css" as="style"
+          onload='this.onload=null,this.rel="stylesheet"'>
+    <link rel="preconnect" href="https://static.ligaicdn.com" crossorigin="anonymous">
+    <script>window.isOverseasVersion = !1, window.autoInstallZkFramework = !1, window.autoInstallZkElementUI = !1, window.currentAppHash = "41550e2e9b849554269b", window.buildTimestamp = "1664294099527"</script>
+    <script src="/app/config.js?41550e2e9b849554269b"></script>
+    <script src="/app/urls-config.js?41550e2e9b849554269b"></script>
+    <script src="/app/bowser.es5.min.js"></script>
+    <script>var supportNames = ["Chrome", "Chromium", "Electron", "Firefox", "Opera", "Safari", "QQ", "QQ Browser", "Microsoft Edge", "WeChat"];
+    window.addEventListener("load", function () {
+        if (window.bowser) {
+            var o = window.bowser.getParser(window.navigator.userAgent),
+                r = (window.bowserInstance = o).getBrowser() || {};
+            if (o.some(supportNames)) {
+                if (o.satisfies({
+                    chrome: ">=69",
+                    firefox: ">=70",
+                    safari: ">=11",
+                    opera: ">=70",
+                    qq: ">=9",
+                    "QQ Browser": ">=9",
+                    "Microsoft Edge": ">=80.0.361.50",
+                    WeChat: ">=6"
+                })) return;
+                if ("Electron" === r.name && window.Proxy) return
+            }
+            var e = "/app/no-support.html?name=" + (r.name || "") + "&version=" + (r.version || "");
+            window.btoa && (e += "&code=" + btoa(window.navigator.userAgent)), window.location.href = e
+        }
+    })</script>
+    <style>.loading-page {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 999999;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #fff
+    }
+
+    .loading-page .msg {
+        margin-top: 24px;
+        color: #1f2134;
+        font-size: 16px
+    }
+
+    .loading-page .msg.is-retry {
+        font-size: 14px
+    }
+
+    .loading-page .retry {
+        margin-top: 16px;
+        background: #6360e6;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 14px;
+        padding: 10px 22px;
+        color: #fff;
+        box-sizing: border-box;
+        cursor: pointer
+    }
+
+    .loading-page .retry:hover {
+        background: #3c3ec0
+    }
+
+    .loading-page .retry:active {
+        background: #202699
+    }
+
+    .loading-page .hide {
+        opacity: 0;
+        pointer-events: none
+    }
+
+    .loading-page .show {
+        opacity: 1
+    }
+
+    .first-loading {
+        --maxSize: 160px;
+        --borderSize: 14px;
+        --spinnerSize: 4px;
+        --borderColor1: #EEF0FF;
+        --borderColor2: #EDF7FE;
+        --spinnerColor1: rgb(85, 0, 255);
+        --spinnerColor2: rgb(0 231 255);
+        --circleC: calc(140 * 2 * 3.14);
+        width: var(--maxSize);
+        height: var(--maxSize);
+        position: relative;
+        border-radius: 50%
+    }
+
+    .first-loading .content {
+        background: #fff;
+        position: absolute;
+        left: var(--borderSize);
+        top: var(--borderSize);
+        right: var(--borderSize);
+        bottom: var(--borderSize);
+        border-radius: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .first-loading .content img {
+        width: 60%;
+        height: 60%;
+        animation: first-loading-logo 2s linear infinite
+    }
+
+    .first-loading .circular {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        animation: first-rotate 5s cubic-bezier(.79, .13, .29, .96) infinite
+    }
+
+    .first-loading .path {
+        stroke-dashoffset: 0;
+        stroke-linecap: round
+    }
+
+    .first-loading .path.border {
+        stroke-dasharray: var(--circleC);
+        stroke-dashoffset: 0;
+        stroke-width: var(--borderSize);
+        stroke: url(#border-color)
+    }
+
+    .first-loading .path.spinner {
+        stroke-dasharray: 90, var(--circleC);
+        stroke-width: var(--spinnerSize);
+        stroke-dashoffset: -355;
+        stroke: url(#spinner-color);
+        animation: first-loading-dash 5s cubic-bezier(.43, .41, .47, 1.17) infinite
+    }
+
+    @keyframes first-rotate {
+        0% {
+            transform: rotate(0)
+        }
+        50% {
+            transform: rotate(-100deg)
+        }
+        100% {
+            transform: rotate(2turn)
+        }
+    }
+
+    @keyframes first-loading-dash {
+        25% {
+            stroke-dasharray: 220, 879.2;
+            stroke-dashoffset: -225
+        }
+        55% {
+            stroke-dasharray: 90, 879.2;
+            stroke-dashoffset: -225
+        }
+        75% {
+            stroke-dasharray: 360, 879.2;
+            stroke-dashoffset: -75
+        }
+        100% {
+            stroke-dasharray: 90, 879.2;
+            stroke-dashoffset: -355
+        }
+    }
+
+    @keyframes first-loading-logo {
+        0% {
+            transform: scale(.85)
+        }
+        40% {
+            transform: scale(1)
+        }
+        50% {
+            transform: scale(1)
+        }
+        60% {
+            transform: scale(1)
+        }
+        100% {
+            transform: scale(.85)
+        }
+    }</style>
+    <script>var slowTipsTimer, retryTipsTimer, hasLoadingError = !1, clearLoadingTipsTimer = function () {
+        slowTipsTimer && clearTimeout(slowTipsTimer), retryTipsTimer && clearTimeout(retryTipsTimer);
+        var e = document.querySelector(".loading-page .msg");
+        e && (e.classList.remove("show"), e.classList.add("hide"), e.innerText = "加载中，马上就好了...");
+        var r = document.querySelector(".loading-page .retry");
+        r && (r.classList.remove("show"), r.classList.add("hide"))
+    }, resetLoadingTipsTimer = function () {
+        clearLoadingTipsTimer(), slowTipsTimer = setTimeout(function () {
+            var r = document.querySelector(".loading-page .msg");
+            r && (r.classList.remove("hide"), r.classList.add("show"), r.innerText = "加载中，马上就好了..."), retryTipsTimer = setTimeout(function () {
+                r.innerText = "网络连接不稳定，请检查网络设置再试试吧~";
+                var e = document.querySelector(".loading-page .retry");
+                e && (e.classList.remove("hide"), e.classList.add("show"))
+            }, 1e4)
+        }, 5e3)
+    };
+    window.retryLoading = function () {
+        hasLoadingError && window.location.reload(), resetLoadingTipsTimer()
+    }, window.destroyLoading = function () {
+        clearLoadingTipsTimer();
+        var e = document.querySelector(".loading-page");
+        e && e.remove()
+    }, window.addEventListener("error", function (e) {
+        var r = e.target || e.srcElement;
+        (r instanceof HTMLScriptElement || r instanceof HTMLLinkElement) && (r.href || r.src) && (hasLoadingError = !0)
+    }, !0), resetLoadingTipsTimer()</script>
+    <link href="/app/css/app.51b4f8c1.css" rel="preload" as="style">
+    <link href="/app/css/chunk-zk-element-ui.459c549d.css" rel="preload" as="style">
+    <link href="/app/css/chunk-zk-ui.75226c1f.css" rel="preload" as="style">
+    <link href="/app/js/app.41550e2e9b849554269b.js" rel="preload" as="script">
+    <link href="/app/js/chunk-zk-element-ui.73b315732e42fed5df74.js" rel="preload" as="script">
+    <link href="/app/js/chunk-zk-ui.b87218f2a35dbc939f02.js" rel="preload" as="script">
+    <link href="/app/runtime.6d4c60db004ecba7ca1e.js" rel="preload" as="script">
+    <link href="/app/css/chunk-zk-ui.75226c1f.css" rel="stylesheet">
+    <link href="/app/css/chunk-zk-element-ui.459c549d.css" rel="stylesheet">
+    <link href="/app/css/app.51b4f8c1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://static.ligaicdn.com/static/npm/driver.js@0.9.8/dist/driver.min.css" ignore>
+    <script>window.externalsCDN = {
+        "lodash": {
+            "url": "https://static.ligaicdn.com/static/npm/lodash@4.17.15/lodash.min.js",
+            "async": true,
+            "varName": "_"
+        },
+        "axios": {
+            "url": "https://static.ligaicdn.com/static/npm/axios@0.21.0/dist/axios.min.js",
+            "async": true,
+            "varName": "axios"
+        },
+        "echarts": {
+            "url": "https://static.ligaicdn.com/static/npm/echarts@5.3.3/dist/echarts.min.js",
+            "varName": "echarts"
+        },
+        "vue": {"url": "https://static.ligaicdn.com/static/npm/vue@2.6.14/dist/vue.min.js", "varName": "Vue"},
+        "vuex": {"url": "https://static.ligaicdn.com/static/npm/vuex@3.6.0/dist/vuex.min.js", "varName": "Vuex"},
+        "vue-router": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-router@3.4.9/dist/vue-router.min.js",
+            "varName": "VueRouter"
+        },
+        "element-ui": {
+            "url": "https://static.ligaicdn.com/static/npm/element-ui@2.14.1/lib/index.js",
+            "varName": "ELEMENT"
+        },
+        "clipboard": {
+            "url": "https://static.ligaicdn.com/static/npm/clipboard@2.0.8/dist/clipboard.min.js",
+            "varName": "ClipboardJS",
+            "async": true
+        },
+        "dayjs": {
+            "url": "https://static.ligaicdn.com/static/npm/dayjs@1.10.4/dayjs.min.js",
+            "async": true,
+            "varName": "dayjs"
+        },
+        "driver.js": {
+            "url": "https://static.ligaicdn.com/static/npm/driver.js@0.9.8/dist/driver.min.js",
+            "varName": "Driver",
+            "css": "https://static.ligaicdn.com/static/npm/driver.js@0.9.8/dist/driver.min.css",
+            "async": true
+        },
+        "interactjs": {
+            "url": "https://static.ligaicdn.com/static/npm/interactjs@1.10.11/dist/interact.min.js",
+            "varName": "interact",
+            "async": true
+        },
+        "sortablejs": {
+            "url": "https://static.ligaicdn.com/static/npm/sortablejs@1.13.0/Sortable.min.js",
+            "varName": "Sortable"
+        },
+        "vue-i18n": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-i18n@8.24.4/dist/vue-i18n.min.js",
+            "varName": "VueI18n"
+        },
+        "vue-meta": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-meta@2.4.0/dist/vue-meta.min.js",
+            "varName": "VueMeta"
+        },
+        "vuedraggable": {
+            "url": "https://static.ligaicdn.com/static/npm/vuedraggable@2.24.3/dist/vuedraggable.umd.min.js",
+            "varName": "vuedraggable"
+        },
+        "xe-utils": {
+            "url": "https://static.ligaicdn.com/static/npm/xe-utils@3.5.2/dist/xe-utils.umd.min.js",
+            "varName": "XEUtils"
+        },
+        "vxe-table": {
+            "url": "https://static.ligaicdn.com/static/npm/vxe-table@3.4.14/lib/index.umd.min.js",
+            "varName": "VXETable",
+            "css": "https://static.ligaicdn.com/static/npm/vxe-table@3.4.14/lib/style.css"
+        },
+        "sa-sdk-javascript": {
+            "url": "https://static.ligaicdn.com/static/npm/sa-sdk-javascript-1.21.12/sensorsdata.min.js",
+            "varName": "sensorsDataAnalytic201505",
+            "async": true
+        },
+        "@vue/composition-api": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-composition-api@1.7.0/dist/vue-composition-api.prod.js",
+            "varName": "VueCompositionAPI"
+        },
+        "vue-demi": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-demi@0.12.5/lib/index.iife.js",
+            "varName": "VueDemi"
+        },
+        "pinia": {
+            "url": "https://static.ligaicdn.com/static/npm/pinia@2.0.21/dist/pinia.iife.prod.js",
+            "varName": "Pinia"
+        },
+        "ag-grid-enterprise": {
+            "url": "https://static.ligaicdn.com/static/npm/ag-grid-enterprise@28.0.0/dist/ag-grid-enterprise.min.noStyle.js",
+            "varName": "agGrid",
+            "css": ["https://static.ligaicdn.com/static/npm/ag-grid-enterprise@28.0.0/dist/styles/ag-grid.min.css", "https://static.ligaicdn.com/static/npm/ag-grid-enterprise@28.0.0/dist/styles/ag-theme-alpine.min.css"]
+        },
+        "ag-grid-vue": {
+            "url": "https://static.ligaicdn.com/static/npm/ag-grid-vue@28.0.0/dist/ag-grid-vue.umd.min.js",
+            "varName": "agGridVue"
+        },
+        "dexie": {
+            "url": "https://static.ligaicdn.com/static/npm/dexie/dist/dexie.min.js",
+            "varName": "Dexie",
+            "async": true
+        }
+    };
+    window.importCDNPromise = {};
+    window.importByCDN = function (name) {
+        var p = window.importCDNPromise[name];
+        if (!p) {
+            p = new Promise(function (resolve, reject) {
+                var item = window.externalsCDN[name];
+                if (!item) {
+                    return reject(new Error('cdn 「' + name + '」 is not config'));
+                }
+                var all = [];
+
+                function success() {
+                    resolve(window[item.varName || name]);
+                }
+
+                function loaded(url) {
+                    var index = all.indexOf(url);
+                    index != -1 && all.splice(index, 1);
+                    all.length || success();
+                }
+
+                var script = document.querySelector('script[data-cdnmodule="' + name + '"]');
+                if (script) {
+                    return success();
+                }
+                script = document.createElement('script');
+                script.setAttribute('ignore', true);
+                script.dataset.cdnmodule = name;
+                script.onload = function () {
+                    loaded(this.src);
+                }
+                script.onerror = function (e) {
+                    reject(new Error('cdn 「' + name + '」 load error', e));
+                }
+                script.src = item.url;
+                all.push(item.url);
+                document.head.appendChild(script);
+
+                var cssList = Array.isArray(item.css) ? item.css : [item.css];
+                if (cssList.length && cssList[0]) {
+                    for (cssUrl of cssList) {
+                        var css = document.querySelector('link[rel=stylesheet][href="' + cssUrl + '"]');
+                        if (!css) {
+                            css = document.createElement('link');
+                            css.rel = 'stylesheet';
+                            css.setAttribute('ignore', true);
+                            css.onload = css.onerror = function () {
+                                loaded(this.href);
+                            }
+                            css.href = cssUrl;
+                            all.push(cssUrl);
+                            document.head.appendChild(css);
+                        }
+                    }
+                }
+            });
+        }
+        return p;
+    };</script>
+    <script>window.prefetchUrls = ["/app/css/chunk-052e1f02.bce6417b.css", "/app/css/chunk-060467ba.734eab23.css", "/app/css/chunk-0df9f85d.067c0ec7.css", "/app/css/chunk-123f2492.46aa5394.css", "/app/css/chunk-219b9e23.c244db31.css", "/app/css/chunk-2be25a31.355f2832.css", "/app/css/chunk-2c7e310f.ec088cf5.css", "/app/css/chunk-321e29d4.d0ab4a9d.css", "/app/css/chunk-32a01176.ce062848.css", "/app/css/chunk-33313588.c299908a.css", "/app/css/chunk-37b76e36.6c21d2fa.css", "/app/css/chunk-385c77f6.ae39e2a8.css", "/app/css/chunk-3f945c22.8ef37182.css", "/app/css/chunk-3fa640d9.91b009e5.css", "/app/css/chunk-412648fc.552686b7.css", "/app/css/chunk-48f77a58.c3aae9a2.css", "/app/css/chunk-4ce41080.86ce5ce6.css", "/app/css/chunk-4ff311e2.383c0348.css", "/app/css/chunk-50fc72d6.b1a14186.css", "/app/css/chunk-5175b82a.39527954.css", "/app/css/chunk-520baec2.38e233da.css", "/app/css/chunk-59100dbe.e7510a65.css", "/app/css/chunk-5d616500.6a1b32f2.css", "/app/css/chunk-5ec7ff40.749c51ae.css", "/app/css/chunk-5f049157.ebd70652.css", "/app/css/chunk-629074ad.462582bc.css", "/app/css/chunk-62a837e1.38284241.css", "/app/css/chunk-651fa869.c75e0882.css", "/app/css/chunk-67a9d077.63d9ad14.css", "/app/css/chunk-6b26de2a.2d60eec1.css", "/app/css/chunk-6b6560a1.03540054.css", "/app/css/chunk-6bc103d8.0e04af78.css", "/app/css/chunk-6d8e929e.391d546e.css", "/app/css/chunk-71c97753.f3226db8.css", "/app/css/chunk-7bad6251.62f56933.css", "/app/css/chunk-7cf851b8.6990c46b.css", "/app/css/chunk-7f0543d2.89779728.css", "/app/css/chunk-7f2502e4.d922bc92.css", "/app/css/chunk-93c145d2.4d90bc26.css", "/app/css/chunk-9877527a.0de5c92d.css", "/app/css/chunk-a15027a8.02aee522.css", "/app/css/chunk-cc45f92a.8f983c2f.css", "/app/css/chunk-e860198e.c8576fcc.css", "/app/css/chunk-fa0629b2.4dafa1c0.css", "/app/css/page-404-index.e574975c.css", "/app/css/page-dashboard-index.3b3d1f43.css", "/app/css/page-dashboard-index~page-roadmap-index.b95a35f4.css", "/app/css/page-release-detail-index.1f014e52.css", "/app/css/page-release-detail-index~page-release-index.d0018707.css", "/app/css/page-release-index.57e037ab.css", "/app/css/page-roadmap-dialog.b9f4044a.css", "/app/css/page-roadmap-index.2d8f2665.css", "/app/css/page-share-expired.77a606bf.css", "/app/css/page-share-login.701ff197.css", "/app/css/page-team-dialog.b40c4778.css", "/app/css/page-team-index.a1959e9e.css", "/app/js/chunk-052e1f02.c81d1c5760a988bf5ef9.js", "/app/js/chunk-060467ba.660b39473dce811279e0.js", "/app/js/chunk-0df9f85d.dfcc316c954b1305d67b.js", "/app/js/chunk-123f2492.e7fe38c390e785ea88e0.js", "/app/js/chunk-159ec4c2.598a3f75812d1695ca2b.js", "/app/js/chunk-219b9e23.a877789452730fecc68a.js", "/app/js/chunk-2be25a31.c298b8bb28e590bc91f9.js", "/app/js/chunk-2c7e310f.ac2b9c27f0c2423d04ee.js", "/app/js/chunk-2d0c0279.a2d6806191a0559cdf4a.js", "/app/js/chunk-2d0c4265.fc5e032ba158c99b7eef.js", "/app/js/chunk-2d0e4e00.ddbe5dcae9be0e4716a7.js", "/app/js/chunk-2d21083e.efaa815130582aaed44d.js", "/app/js/chunk-321e29d4.d1cb2898f9bf387d7713.js", "/app/js/chunk-32a01176.d800af3be85c41d5f448.js", "/app/js/chunk-33313588.3df1cf1b3566f3ede417.js", "/app/js/chunk-37b76e36.aa9120fbd4809f849f51.js", "/app/js/chunk-385c77f6.98019c32cbd4822cffb8.js", "/app/js/chunk-3f945c22.9f82d231ba6b9880d8bb.js", "/app/js/chunk-3fa640d9.b733300e09e45bc61707.js", "/app/js/chunk-410380d6.48f509e4a8f3c4b279a3.js", "/app/js/chunk-412648fc.a375eda49a3d4ba4730c.js", "/app/js/chunk-43d8874e.cbfafb6f28edbcc06999.js", "/app/js/chunk-48f77a58.b602cbf0df2ea4770261.js", "/app/js/chunk-4ce41080.b5487bd5af0d98bec2cd.js", "/app/js/chunk-4df98762.a0b0af936ba05303a0a8.js", "/app/js/chunk-4ff311e2.3d7e068b98fdd90dcf24.js", "/app/js/chunk-50fc72d6.089f23f85b5b993e75e3.js", "/app/js/chunk-5175b82a.0e4fb96957e6838b83a2.js", "/app/js/chunk-520baec2.d19cdea348535aa581e1.js", "/app/js/chunk-59100dbe.2b6e6ecd0a60fd828a0e.js", "/app/js/chunk-5d616500.4380238c4e67853d0a04.js", "/app/js/chunk-5ec7ff40.43d08159be44b161635f.js", "/app/js/chunk-5f049157.d1083d7dd4a379543924.js", "/app/js/chunk-629074ad.01b2e0c4391de97028ba.js", "/app/js/chunk-62a837e1.84d202dab59a0e924314.js", "/app/js/chunk-651fa869.a68aa598e4497e4e82f0.js", "/app/js/chunk-67a9d077.81ee334424dd2b72e4e0.js", "/app/js/chunk-6b26de2a.b652951d1db279336f69.js", "/app/js/chunk-6b6560a1.6818506eb4bc011a52cf.js", "/app/js/chunk-6bc103d8.4b796a9c883de0f4bbd3.js", "/app/js/chunk-6d8e929e.42f55ed51c1a3d215b5d.js", "/app/js/chunk-71c97753.22214914ccc24324be5c.js", "/app/js/chunk-72a63814.d2fb75b6d05fdb94162a.js", "/app/js/chunk-7bad6251.30efd815a9832ec275ca.js", "/app/js/chunk-7cf851b8.dddda1dd5300176aaf7b.js", "/app/js/chunk-7f0543d2.1c67965e4dc923de851b.js", "/app/js/chunk-7f2502e4.473124e8483fa6462672.js", "/app/js/chunk-93c145d2.1cd3e3d2907dca9fe308.js", "/app/js/chunk-9877527a.e42fa1b13526f3cb6ad4.js", "/app/js/chunk-a15027a8.9b050c85e66bb01ce002.js", "/app/js/chunk-cc45f92a.91612fb539677c2cba71.js", "/app/js/chunk-e860198e.f84533c2dcd56771ac28.js", "/app/js/chunk-fa0629b2.a38adc3bf3d2a70ff828.js", "/app/js/page-404-index.ff56a7cf1ad35e63079e.js", "/app/js/page-dashboard-index.bdbb7330c189e3072495.js", "/app/js/page-dashboard-index~page-roadmap-index.8ceeb7b214eca8b1757b.js", "/app/js/page-recorder-start.3f35d8594aba3f46538a.js", "/app/js/page-release-detail-index.1406cfb0ff902988ec14.js", "/app/js/page-release-detail-index~page-release-index.30e097eea1f9431b26cd.js", "/app/js/page-release-index.5d4b5d9b8e32aa7b9661.js", "/app/js/page-roadmap-dialog.6f5d2fa45f46755a5a3f.js", "/app/js/page-roadmap-index.c826017b0f9de1505c36.js", "/app/js/page-share-expired.308a7a3fbf01ad10bd40.js", "/app/js/page-share-login.5a8f5f325ac8fcb9938d.js", "/app/js/page-team-dialog.977363cac62aabc67d08.js", "/app/js/page-team-index.dc8aa4c9f76329e45850.js", "/app/js/vendors~page-dashboard-index.4ecd13e00ae67c07d0a6.js"];
+    window.enablePrefetch = function () {
+        var html = '';
+        for (url of window.prefetchUrls) {
+            html += '<link href=' + url + ' rel="prefetch">';
+        }
+        document.head.insertAdjacentHTML('beforeend', html);
+    }</script>
+</head>
+<body>
+<div class="loading-page">
+    <div class="first-loading">
+        <svg viewBox="150 150 300 300" class="circular">
+            <defs>
+                <linearGradient id="border-color" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0" style="stop-color:var(--borderColor1)"></stop>
+                    <stop offset="100" style="stop-color:var(--borderColor2);stop-opacity:100"></stop>
+                </linearGradient>
+                <linearGradient id="spinner-color" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0" style="stop-color:var(--spinnerColor1)"></stop>
+                    <stop offset="100" style="stop-color:var(--spinnerColor2);stop-opacity:100"></stop>
+                </linearGradient>
+            </defs>
+            <circle cx="100%" cy="100%" r="140" fill="none" class="path border"></circle>
+            <circle cx="100%" cy="100%" r="140" fill="none" class="path spinner"></circle>
+        </svg>
+        <div class="content"><img src="https://static.ligaicdn.com/static/images/logo.svg"/></div>
+    </div>
+    <div class="msg hide">加载中，马上就好了...</div>
+    <div class="retry hide" onclick="retryLoading()">重新加载</div>
+</div>
+<div id="app"></div>
+<img src="https://static.ligaicdn.com/static/images/SAAS_MODULES/share-icon.png" style="display:none"/>
+<script defer="defer"
+        src="https://static.ligaicdn.com/static/iconfont/symbol/font_2489213_jwkfqj957i/iconfont.js"></script>
+<script defer="defer"
+        src="https://static.ligaicdn.com/static/iconfont/symbol/ligaicon_0711_d163d999090c705d/iconfont.js"></script>
+<script src="https://static.ligaicdn.com/static/npm/lodash@4.17.15/lodash.min.js" data-cdnmodule="lodash"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/dayjs@1.10.4/dayjs.min.js" data-cdnmodule="dayjs" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/axios@0.21.0/dist/axios.min.js" data-cdnmodule="axios"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/clipboard@2.0.8/dist/clipboard.min.js" data-cdnmodule="clipboard"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/driver.js@0.9.8/dist/driver.min.js" data-cdnmodule="driver.js"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/interactjs@1.10.11/dist/interact.min.js" data-cdnmodule="interactjs"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/sortablejs@1.13.0/Sortable.min.js" data-cdnmodule="sortablejs"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/dexie/dist/dexie.min.js" data-cdnmodule="dexie" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue@2.6.14/dist/vue.min.js" data-cdnmodule="vue" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vuex@3.6.0/dist/vuex.min.js" data-cdnmodule="vuex" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-router@3.4.9/dist/vue-router.min.js" data-cdnmodule="vue-router"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-meta@2.4.0/dist/vue-meta.min.js" data-cdnmodule="vue-meta"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-i18n@8.24.4/dist/vue-i18n.min.js" data-cdnmodule="vue-i18n"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vuedraggable@2.24.3/dist/vuedraggable.umd.min.js"
+        data-cdnmodule="vuedraggable" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-composition-api@1.7.0/dist/vue-composition-api.prod.js"
+        data-cdnmodule="@vue/composition-api" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-demi@0.12.5/lib/index.iife.js" data-cdnmodule="vue-demi"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/pinia@2.0.21/dist/pinia.iife.prod.js" data-cdnmodule="pinia"
+        ignore></script>
+<script src="/app/runtime.6d4c60db004ecba7ca1e.js"></script>
+<script src="/app/js/chunk-zk-ui.b87218f2a35dbc939f02.js"></script>
+<script src="/app/js/chunk-zk-element-ui.73b315732e42fed5df74.js"></script>
+<script src="/app/js/app.41550e2e9b849554269b.js"></script>
+</body>
+<script>window.addEventListener('load', function () {
+    (function (g, u, i, d, e, s) {
+        g[e] = g[e] || [];
+        var f = u.getElementsByTagName(i)[0];
+        var k = u.createElement(i);
+        var b = window.bowser.getParser(window.navigator.userAgent);
+        var src = 'https://static.userguiding.com/media/user-guiding-' + s + '-embedded.js';
+        if (b.some(['chrome'])) {
+            fetch(src).then(res => res.text()).then(data => {
+                if (data) {
+                    data = data.replace('e.body.children.length<1', "if(e.body.children.length===1&&e.body.children[0].tagName === 'AUDIO'){e.body.innerHTML=''};e.body.children.length<1");
+                    k.innerHTML = data;
+                }
+            });
+        } else {
+            k.async = true;
+            k.src = src;
+        }
+        f.parentNode.insertBefore(k, f);
+        if (g[d]) return;
+        var ug = (g[d] = {q: []});
+        ug.c = function (n) {
+            return function () {
+                ug.q.push([n, arguments]);
+            };
+        };
+        var m = [
+            'previewGuide',
+            'finishPreview',
+            'track',
+            'identify',
+            'triggerNps',
+            'hideChecklist',
+            'launchChecklist'
+        ];
+        for (var j = 0; j < m.length; j += 1) {
+            ug[m[j]] = ug.c(m[j]);
+        }
+    })(
+        window,
+        document,
+        'script',
+        'userGuiding',
+        'userGuidingLayer',
+        '122972388ID'
+    );
+});</script>
+<script>// 在线客服
+window.addEventListener('load', function () {
+    (function (a, b, c, d, e, j, s) {
+        a[d] = a[d] || function () {
+            (a[d].a = a[d].a || []).push(arguments)
+        };
+        j = b.createElement(c),
+            s = b.getElementsByTagName(c)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/widget/loader.js';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    window.setMQLanguage = function (locale) {
+        const MQ = {zh: 'cn', en: 'en'};
+        const subSource = {zh: '', en: 'sub_source_1'};
+        _MEIQIA('language', MQ[locale] || 'cn');
+        _MEIQIA('subSource', subSource[locale]);
+    }
+    _MEIQIA('entId', 'fee4005405b6d5ad8440fe8e73c0c438');
+    _MEIQIA('withoutBtn');
+    try {
+        const result = window.localStorage.getItem('language');
+        let locale = 'cn';
+        if (result) {
+            locale = JSON.parse(result).data;
+        }
+        window.setMQLanguage(locale || 'cn');
+    } catch (e) {
+    }
+});</script>
+<script>window.addEventListener("load", function () {
+    var n, e, s, t;
+    n = window, e = document, n.npsmeter = n.npsmeter || function () {
+        (n.npsmeter.q = n.npsmeter.q || []).push(arguments)
+    }, n._npsSettings = {
+        npsid: "3f717896318f4a8d",
+        npssv: "1.0.1"
+    }, s = e.getElementsByTagName("head")[0], (t = e.createElement("script")).async = 1, t.src = "https://static.npsmeter.cn/npsmeter.js?sv=" + n._npsSettings.npssv + "&npsid=" + n._npsSettings.npsid, s.appendChild(t)
+})</script>
+</html>

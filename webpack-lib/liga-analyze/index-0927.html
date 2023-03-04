@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html translate="no">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="LigaAI">
+    <meta name="description" content="LigaAI">
+    <meta name="msapplication-square150x150logo"
+          content="https://static.ligaicdn.com/static/images/SAAS_MODULES/share-icon.png">
+    <meta name="google" value="notranslate">
+    <title>LigaAI</title>
+    <link rel="icon" href="https://ligai.cn/app/favicon.ico">
+    <link rel="preload" href="https://static.ligaicdn.com/static/iconfont/font-awesome.min.css" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://static.ligaicdn.com/static/css/simplemde.min.css" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://static.ligaicdn.com/static/iconfont/font_2079267_q0a6os4sq3p/iconfont.css"
+          as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://static.ligaicdn.com/static/iconfont/font_20220711_1320f383c486f505/liga-icon.css"
+          as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://static.ligaicdn.com/static/css/animate.min.css" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preconnect" href="https://static.ligaicdn.com" crossorigin="anonymous">
+    <script src="https://ligai.cn/app/bowser.es5.min.js"></script>
+    <script>// window.networkSpeed = (navigator.connection || navigator.mozConnection || navigator.webkitConnection || {downlink: 8}).downlink >= 8 ? 1 : 0;
+    window.isOverseasVersion = '' === 'en'
+    // 取消自动安装
+    window.autoInstallZkFramework = false;
+    window.autoInstallZkElementUI = false;
+
+    var supportNames = ['Chrome', 'Chromium', 'Electron', 'Firefox', 'Opera', 'Safari', 'QQ', 'QQ Browser', 'Microsoft Edge', 'WeChat']
+    window.addEventListener('load', function () {
+        if (!window.bowser) {
+            return;
+        }
+        var b = window.bowser.getParser(window.navigator.userAgent);
+        window.bowserInstance = b;
+        var browser = b.getBrowser() || {};
+        if (b.some(supportNames)) {
+            var isSupport = b.satisfies({
+                chrome: '>=69',
+                firefox: '>=70',
+                safari: '>=11',
+                opera: '>=70',
+                qq: '>=9',
+                'QQ Browser': '>=9',
+                'Microsoft Edge': '>=80.0.361.50',
+                WeChat: '>=6'
+            });
+            if (isSupport) {
+                return;
+            }
+            if (browser.name === 'Electron' && window.Proxy) {
+                return;
+            }
+        }
+        var noSupportUrl = '/app/no-support.html?name=' + (browser.name || '') + '&version=' + (browser.version || '');
+        if (window.btoa) {
+            noSupportUrl += '&code=' + btoa(window.navigator.userAgent);
+        }
+        window.location.href = noSupportUrl;
+    });</script>
+    <script>window.currentAppHash = 'a21e080488deca8da015';
+    window.buildTimestamp = '1663929371982';</script>
+    <script>
+        console.time('parse header');
+    </script>
+    <script src="https://ligai.cn/app/config.js?a21e080488deca8da015"></script>
+    <script src="https://ligai.cn/app/urls-config.js?a21e080488deca8da015"></script>
+    <link href="https://ligai.cn/app/app.a21e080488deca8da015.js" rel="preload" as="script">
+    <link href="https://ligai.cn/app/css/app.a02ca1b2.css" rel="preload" as="style">
+    <link href="https://ligai.cn/app/css/chunk-vendors.03d13794.css" rel="preload" as="style">
+    <link href="https://ligai.cn/app/js/chunk-vendors.766aa667875101ce322c.js" rel="preload" as="script">
+    <link href="https://ligai.cn/app/css/chunk-vendors.03d13794.css" rel="stylesheet">
+    <link href="https://ligai.cn/app/css/app.a02ca1b2.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://static.ligaicdn.com/static/npm/driver.js@0.9.8/dist/driver.min.css" ignore>
+    <script>window.externalsCDN = {
+        "lodash": {
+            "url": "https://static.ligaicdn.com/static/npm/lodash@4.17.15/lodash.min.js",
+            "async": true,
+            "varName": "_"
+        },
+        "axios": {
+            "url": "https://static.ligaicdn.com/static/npm/axios@0.21.0/dist/axios.min.js",
+            "async": true,
+            "varName": "axios"
+        },
+        "echarts": {
+            "url": "https://static.ligaicdn.com/static/npm/echarts@5.3.3/dist/echarts.min.js",
+            "varName": "echarts"
+        },
+        "vue": {"url": "https://static.ligaicdn.com/static/npm/vue@2.6.14/dist/vue.min.js", "varName": "Vue"},
+        "vuex": {"url": "https://static.ligaicdn.com/static/npm/vuex@3.6.0/dist/vuex.min.js", "varName": "Vuex"},
+        "vue-router": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-router@3.4.9/dist/vue-router.min.js",
+            "varName": "VueRouter"
+        },
+        "element-ui": {
+            "url": "https://static.ligaicdn.com/static/npm/element-ui@2.14.1/lib/index.js",
+            "varName": "ELEMENT"
+        },
+        "clipboard": {
+            "url": "https://static.ligaicdn.com/static/npm/clipboard@2.0.8/dist/clipboard.min.js",
+            "varName": "ClipboardJS",
+            "async": true
+        },
+        "dayjs": {
+            "url": "https://static.ligaicdn.com/static/npm/dayjs@1.10.4/dayjs.min.js",
+            "async": true,
+            "varName": "dayjs"
+        },
+        "driver.js": {
+            "url": "https://static.ligaicdn.com/static/npm/driver.js@0.9.8/dist/driver.min.js",
+            "varName": "Driver",
+            "css": "https://static.ligaicdn.com/static/npm/driver.js@0.9.8/dist/driver.min.css",
+            "async": true
+        },
+        "interactjs": {
+            "url": "https://static.ligaicdn.com/static/npm/interactjs@1.10.11/dist/interact.min.js",
+            "varName": "interact",
+            "async": true
+        },
+        "sortablejs": {
+            "url": "https://static.ligaicdn.com/static/npm/sortablejs@1.13.0/Sortable.min.js",
+            "varName": "Sortable"
+        },
+        "vue-i18n": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-i18n@8.24.4/dist/vue-i18n.min.js",
+            "varName": "VueI18n"
+        },
+        "vue-meta": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-meta@2.4.0/dist/vue-meta.min.js",
+            "varName": "VueMeta"
+        },
+        "vuedraggable": {
+            "url": "https://static.ligaicdn.com/static/npm/vuedraggable@2.24.3/dist/vuedraggable.umd.min.js",
+            "varName": "vuedraggable"
+        },
+        "xe-utils": {
+            "url": "https://static.ligaicdn.com/static/npm/xe-utils@3.5.2/dist/xe-utils.umd.min.js",
+            "varName": "XEUtils"
+        },
+        "vxe-table": {
+            "url": "https://static.ligaicdn.com/static/npm/vxe-table@3.4.14/lib/index.umd.min.js",
+            "varName": "VXETable"
+        },
+        "sa-sdk-javascript": {
+            "url": "https://static.ligaicdn.com/static/npm/sa-sdk-javascript-1.21.12/sensorsdata.min.js",
+            "varName": "sensorsDataAnalytic201505",
+            "async": true
+        },
+        "@vue/composition-api": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-composition-api@1.7.0/dist/vue-composition-api.prod.js",
+            "varName": "VueCompositionAPI"
+        },
+        "vue-demi": {
+            "url": "https://static.ligaicdn.com/static/npm/vue-demi@0.12.5/lib/index.iife.js",
+            "varName": "VueDemi"
+        },
+        "pinia": {
+            "url": "https://static.ligaicdn.com/static/npm/pinia@2.0.21/dist/pinia.iife.prod.js",
+            "varName": "Pinia"
+        },
+        "ag-grid-enterprise": {
+            "url": "https://static.ligaicdn.com/static/npm/ag-grid-enterprise@28.0.0/dist/ag-grid-enterprise.min.noStyle.js",
+            "varName": "agGrid"
+        },
+        "ag-grid-vue": {
+            "url": "https://static.ligaicdn.com/static/npm/ag-grid-vue@28.0.0/dist/ag-grid-vue.umd.min.js",
+            "varName": "agGridVue"
+        },
+        "dexie": {
+            "url": "https://static.ligaicdn.com/static/npm/dexie/dist/dexie.min.js",
+            "varName": "Dexie",
+            "async": true
+        }
+    };
+    window.importByCDN = function (name) {
+        return new Promise(function (resolve, reject) {
+            var item = window.externalsCDN[name];
+            if (!item) {
+                return reject(new Error('cdn 「' + name + '」 is not config'));
+            }
+            var all = [];
+
+            function success() {
+                resolve(window[item.varName || name]);
+            }
+
+            function loaded(url) {
+                var index = all.indexOf(url);
+                index != -1 && all.splice(index, 1);
+                all.length || success();
+            }
+
+            var script = document.querySelector('script[data-cdnmodule="' + name + '"]');
+            if (script) {
+                return success();
+            }
+            script = document.createElement('script');
+            script.src = item.url;
+            script.dataset.cdnmodule = name;
+            script.onload = function () {
+                loaded(item.url);
+            }
+            script.onerror = function (e) {
+                reject(new Error('cdn 「' + name + '」 load error', e));
+            }
+            all.push(item.url);
+            document.head.appendChild(script);
+
+            var cssList = Array.isArray(item.css) ? item.css : [item.css];
+            if (cssList.length && cssList[0]) {
+                for (cssUrl of cssList) {
+                    var css = document.querySelector('link[rel=stylesheet][href="' + cssUrl + '"]');
+                    if (!css) {
+                        css = document.createElement('link');
+                        css.href = cssUrl;
+                        css.rel = 'stylesheet';
+                        css.onload = css.onerror = function () {
+                            loaded(cssUrl);
+                        }
+                        all.push(cssUrl);
+                        document.head.appendChild(css);
+                    }
+                }
+            }
+        });
+    }</script>
+    <script>window.prefetchUrls = ["/app/css/chunk-052e1f02.bce6417b.css", "/app/css/chunk-0df9f85d.067c0ec7.css", "/app/css/chunk-123f2492.46aa5394.css", "/app/css/chunk-219b9e23.c244db31.css", "/app/css/chunk-2be25a31.355f2832.css", "/app/css/chunk-2c7e310f.ec088cf5.css", "/app/css/chunk-302e4b66.6d89fc4d.css", "/app/css/chunk-321e29d4.d0ab4a9d.css", "/app/css/chunk-33313588.c299908a.css", "/app/css/chunk-37b76e36.6c21d2fa.css", "/app/css/chunk-385c77f6.ae39e2a8.css", "/app/css/chunk-3f945c22.8ef37182.css", "/app/css/chunk-3fa640d9.91b009e5.css", "/app/css/chunk-4206f660.552686b7.css", "/app/css/chunk-48f77a58.c3aae9a2.css", "/app/css/chunk-4ce41080.86ce5ce6.css", "/app/css/chunk-50fc72d6.b1a14186.css", "/app/css/chunk-5175b82a.39527954.css", "/app/css/chunk-52ccb37e.1a367c52.css", "/app/css/chunk-58da4622.a0e46974.css", "/app/css/chunk-59100dbe.e7510a65.css", "/app/css/chunk-5d616500.6a1b32f2.css", "/app/css/chunk-5ec7ff40.749c51ae.css", "/app/css/chunk-629074ad.462582bc.css", "/app/css/chunk-62a837e1.38284241.css", "/app/css/chunk-63e258fa.383c0348.css", "/app/css/chunk-651fa869.c75e0882.css", "/app/css/chunk-67a9d077.63d9ad14.css", "/app/css/chunk-6969a776.77bd5947.css", "/app/css/chunk-6b26de2a.2d60eec1.css", "/app/css/chunk-6b6560a1.03540054.css", "/app/css/chunk-6bc103d8.0e04af78.css", "/app/css/chunk-6d8e929e.391d546e.css", "/app/css/chunk-71c97753.f3226db8.css", "/app/css/chunk-7bad6251.62f56933.css", "/app/css/chunk-7cf851b8.6990c46b.css", "/app/css/chunk-7f0543d2.89779728.css", "/app/css/chunk-9877527a.0de5c92d.css", "/app/css/chunk-a15027a8.02aee522.css", "/app/css/chunk-af0c60aa.8f983c2f.css", "/app/css/chunk-dc318ffa.d922bc92.css", "/app/css/chunk-e860198e.c8576fcc.css", "/app/css/chunk-fa0629b2.4dafa1c0.css", "/app/css/chunk-fa269f96.ce062848.css", "/app/css/page-404-index.42f2ae51.css", "/app/css/page-dashboard-index.1df5fc5a.css", "/app/css/page-dashboard-index~page-roadmap-index.b95a35f4.css", "/app/css/page-release-detail-index.1f014e52.css", "/app/css/page-release-detail-index~page-release-index.d0018707.css", "/app/css/page-release-index.57e037ab.css", "/app/css/page-roadmap-dialog.b9f4044a.css", "/app/css/page-roadmap-index.2d8f2665.css", "/app/css/page-share-expired.77a606bf.css", "/app/css/page-share-login.701ff197.css", "/app/css/page-team-dialog.b40c4778.css", "/app/css/page-team-index.a1959e9e.css", "/app/js/chunk-052e1f02.2a737405f1381cc941de.js", "/app/js/chunk-0df9f85d.dfcc316c954b1305d67b.js", "/app/js/chunk-123f2492.e2faa2bfef61ceaeca00.js", "/app/js/chunk-219b9e23.1bf58e6b050d0b43a8ee.js", "/app/js/chunk-2be25a31.c298b8bb28e590bc91f9.js", "/app/js/chunk-2c7e310f.6138915dd65f1ffc7cbb.js", "/app/js/chunk-2d0c0279.a2d6806191a0559cdf4a.js", "/app/js/chunk-2d0c4265.fc5e032ba158c99b7eef.js", "/app/js/chunk-2d0d7c92.3c3cf615325f6edc064f.js", "/app/js/chunk-2d0e4e00.ddbe5dcae9be0e4716a7.js", "/app/js/chunk-302e4b66.478fa4b53e927fb75a99.js", "/app/js/chunk-321e29d4.d1cb2898f9bf387d7713.js", "/app/js/chunk-33313588.1922918b9faa587fd710.js", "/app/js/chunk-37b76e36.9fc6eacbe0f88f312ced.js", "/app/js/chunk-385c77f6.f4ff8c548548b1b7d0fd.js", "/app/js/chunk-3f945c22.9f82d231ba6b9880d8bb.js", "/app/js/chunk-3fa640d9.d4841d6526ed63c08330.js", "/app/js/chunk-4206f660.f72f7ce0064f0296e030.js", "/app/js/chunk-43d8874e.cbfafb6f28edbcc06999.js", "/app/js/chunk-48f77a58.b04dae6d2bac5e58d888.js", "/app/js/chunk-4ce41080.0784f9886f96e6f45b02.js", "/app/js/chunk-50fc72d6.1275dbb27cd63d389dad.js", "/app/js/chunk-5175b82a.0e4fb96957e6838b83a2.js", "/app/js/chunk-52ccb37e.bb65b86f3bd1c25d8548.js", "/app/js/chunk-58da4622.f801c7cab7b3eb7bd914.js", "/app/js/chunk-59100dbe.20d4d79763631e462aa4.js", "/app/js/chunk-5d616500.e92de513817ff3413775.js", "/app/js/chunk-5ec7ff40.82755d30c1480840b170.js", "/app/js/chunk-629074ad.01b2e0c4391de97028ba.js", "/app/js/chunk-62a837e1.84d202dab59a0e924314.js", "/app/js/chunk-63e258fa.47eef0ca5ba9fd25519d.js", "/app/js/chunk-651fa869.a68aa598e4497e4e82f0.js", "/app/js/chunk-67a9d077.22caa5ebe31264125592.js", "/app/js/chunk-6969a776.cfc435ee526709daac3d.js", "/app/js/chunk-6b26de2a.aee07a56a52fe5714bf2.js", "/app/js/chunk-6b6560a1.6818506eb4bc011a52cf.js", "/app/js/chunk-6bc103d8.31e12e366b06e3d3a3e1.js", "/app/js/chunk-6d8e929e.42f55ed51c1a3d215b5d.js", "/app/js/chunk-71c97753.79546fd5dce91d6e1605.js", "/app/js/chunk-72a63814.d2fb75b6d05fdb94162a.js", "/app/js/chunk-7bad6251.30efd815a9832ec275ca.js", "/app/js/chunk-7cf851b8.bfe12eab914fa2ac6724.js", "/app/js/chunk-7f0543d2.5299843cb93710e89988.js", "/app/js/chunk-9877527a.421eacac5b5e74a47916.js", "/app/js/chunk-a15027a8.fc880e70b8580b18c9e9.js", "/app/js/chunk-af0c60aa.802cf900a863f186ad10.js", "/app/js/chunk-dc318ffa.4049d3c1c560a7d06000.js", "/app/js/chunk-e860198e.f84533c2dcd56771ac28.js", "/app/js/chunk-fa0629b2.c17b4e2daf82cfbad301.js", "/app/js/chunk-fa269f96.15838811ca222c895947.js", "/app/js/page-404-index.05c62bfab347a1cf85e0.js", "/app/js/page-dashboard-index.c8e4bcae4962ce72cf9d.js", "/app/js/page-dashboard-index~page-roadmap-index.b7dc0cab20dfef637569.js", "/app/js/page-recorder-start.3f35d8594aba3f46538a.js", "/app/js/page-release-detail-index.b84b8da396d92af916c3.js", "/app/js/page-release-detail-index~page-release-index.bd36acc5de5013733e34.js", "/app/js/page-release-index.5d4b5d9b8e32aa7b9661.js", "/app/js/page-roadmap-dialog.6f5d2fa45f46755a5a3f.js", "/app/js/page-roadmap-index.3fb7fed57252a992d4db.js", "/app/js/page-share-expired.308a7a3fbf01ad10bd40.js", "/app/js/page-share-login.5a8f5f325ac8fcb9938d.js", "/app/js/page-team-dialog.977363cac62aabc67d08.js", "/app/js/page-team-index.2e8e1333bdc8a17cabdf.js"];
+    window.enablePrefetch = function () {
+        var html = '';
+        for (url of window.prefetchUrls) {
+            html += '<link href=' + url + ' rel="prefetch">';
+        }
+        document.head.insertAdjacentHTML('beforeend', html);
+    }</script>
+    <script>
+        console.timeEnd('parse header');
+    </script>
+</head>
+<body>
+<div id="app"></div>
+<img src="https://static.ligaicdn.com/static/images/SAAS_MODULES/share-icon.png" style="display: none;">
+<script defer src="https://static.ligaicdn.com/static/iconfont/symbol/font_2489213_jwkfqj957i/iconfont.js"></script>
+<script defer
+        src="https://static.ligaicdn.com/static/iconfont/symbol/ligaicon_0711_d163d999090c705d/iconfont.js"></script>
+<script>window.addEventListener('load', function () {
+    (function (g, u, i, d, e, s) {
+        g[e] = g[e] || [];
+        var f = u.getElementsByTagName(i)[0];
+        var k = u.createElement(i);
+        var b = window.bowser.getParser(window.navigator.userAgent);
+        var src = 'https://static.userguiding.com/media/user-guiding-' + s + '-embedded.js';
+        if (b.some(['chrome'])) {
+            fetch(src).then(res => res.text()).then(data => {
+                if (data) {
+                    data = data.replace('e.body.children.length<1', "if(e.body.children.length===1&&e.body.children[0].tagName === 'AUDIO'){e.body.innerHTML=''};e.body.children.length<1");
+                    k.innerHTML = data;
+                }
+            });
+        } else {
+            k.async = true;
+            k.src = src;
+        }
+        f.parentNode.insertBefore(k, f);
+        if (g[d]) return;
+        var ug = (g[d] = {q: []});
+        ug.c = function (n) {
+            return function () {
+                ug.q.push([n, arguments]);
+            };
+        };
+        var m = [
+            'previewGuide',
+            'finishPreview',
+            'track',
+            'identify',
+            'triggerNps',
+            'hideChecklist',
+            'launchChecklist'
+        ];
+        for (var j = 0; j < m.length; j += 1) {
+            ug[m[j]] = ug.c(m[j]);
+        }
+    })(
+        window,
+        document,
+        'script',
+        'userGuiding',
+        'userGuidingLayer',
+        '122972388ID'
+    );
+});</script>
+<script>//npsmeter
+window.addEventListener('load', function () {
+    (function (a, b, c, d, e, f) {
+        a.npsmeter = a.npsmeter || function () {
+            (a.npsmeter.q = a.npsmeter.q || []).push(arguments);
+        };
+        a._npsSettings = {npsid: "3f717896318f4a8d", npssv: "1.0.1"};
+        e = b.getElementsByTagName("head")[0];
+        f = b.createElement("script");
+        f.async = 1;
+        f.src = c + d + a._npsSettings.npssv + "&npsid=" + a._npsSettings.npsid;
+        e.appendChild(f);
+    })(window, document, "https://static.npsmeter.cn/npsmeter", ".js?sv=");
+});</script>
+<script>// 在线客服
+window.addEventListener('load', function () {
+    (function (a, b, c, d, e, j, s) {
+        a[d] = a[d] || function () {
+            (a[d].a = a[d].a || []).push(arguments)
+        };
+        j = b.createElement(c),
+            s = b.getElementsByTagName(c)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/widget/loader.js';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    window.setMQLanguage = function (locale) {
+        const MQ = {zh: 'cn', en: 'en'};
+        const subSource = {zh: '', en: 'sub_source_1'};
+        _MEIQIA('language', MQ[locale] || 'cn');
+        _MEIQIA('subSource', subSource[locale]);
+    }
+    _MEIQIA('entId', 'fee4005405b6d5ad8440fe8e73c0c438');
+    _MEIQIA('withoutBtn');
+    try {
+        const result = window.localStorage.getItem('language');
+        let locale = 'cn';
+        if (result) {
+            locale = JSON.parse(result).data;
+        }
+        window.setMQLanguage(locale || 'cn');
+    } catch (e) {
+    }
+});</script>
+<script src="https://static.ligaicdn.com/static/npm/lodash@4.17.15/lodash.min.js" data-cdnmodule="lodash"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/dayjs@1.10.4/dayjs.min.js" data-cdnmodule="dayjs" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/axios@0.21.0/dist/axios.min.js" data-cdnmodule="axios"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/clipboard@2.0.8/dist/clipboard.min.js" data-cdnmodule="clipboard"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/echarts@5.3.3/dist/echarts.min.js" data-cdnmodule="echarts"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/driver.js@0.9.8/dist/driver.min.js" data-cdnmodule="driver.js"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/interactjs@1.10.11/dist/interact.min.js" data-cdnmodule="interactjs"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/sortablejs@1.13.0/Sortable.min.js" data-cdnmodule="sortablejs"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/dexie/dist/dexie.min.js" data-cdnmodule="dexie" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue@2.6.14/dist/vue.min.js" data-cdnmodule="vue" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vuex@3.6.0/dist/vuex.min.js" data-cdnmodule="vuex" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-router@3.4.9/dist/vue-router.min.js" data-cdnmodule="vue-router"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-meta@2.4.0/dist/vue-meta.min.js" data-cdnmodule="vue-meta"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-i18n@8.24.4/dist/vue-i18n.min.js" data-cdnmodule="vue-i18n"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vuedraggable@2.24.3/dist/vuedraggable.umd.min.js"
+        data-cdnmodule="vuedraggable" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-composition-api@1.7.0/dist/vue-composition-api.prod.js"
+        data-cdnmodule="@vue/composition-api" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vue-demi@0.12.5/lib/index.iife.js" data-cdnmodule="vue-demi"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/pinia@2.0.21/dist/pinia.iife.prod.js" data-cdnmodule="pinia"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/ag-grid-enterprise@28.0.0/dist/ag-grid-enterprise.min.noStyle.js"
+        data-cdnmodule="ag-grid-enterprise" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/ag-grid-vue@28.0.0/dist/ag-grid-vue.umd.min.js"
+        data-cdnmodule="ag-grid-vue" ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/xe-utils@3.5.2/dist/xe-utils.umd.min.js" data-cdnmodule="xe-utils"
+        ignore></script>
+<script src="https://static.ligaicdn.com/static/npm/vxe-table@3.4.14/lib/index.umd.min.js" data-cdnmodule="vxe-table"
+        ignore></script>
+<script src="https://ligai.cn/app/js/chunk-vendors.766aa667875101ce322c.js"></script>
+<script src="https://ligai.cn/app/app.a21e080488deca8da015.js"></script>
+<script>
+    function renderedAPP() {
+        document.querySelector('#app').innerHTML = 'rendered';
+    }
+
+    renderedAPP()
+</script>
+</body>
+</html>Ï

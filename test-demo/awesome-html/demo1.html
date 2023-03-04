@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        console.log('load demo1 page')
+        /**
+         * 跳转其他页面
+         */
+        setTimeout(() => {
+            console.log('jump to other page')
+            location.href = "https://ligai.cn/sso/?sso-redirect=https%3A%2F%2Fligai.cn%2Fapp%2Fkanban%2Flist"
+            // history api 切换
+            window.history.pushState()
+        }, 3000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,585 @@
+{
+  "hash": "ee62b7f8e8c656e1c30f",
+  "version": "5.74.0",
+  "time": 1398,
+  "builtAt": 1664164789870,
+  "publicPath": "auto",
+  "outputPath": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/dist",
+  "assetsByChunkName": {
+    "main": [
+      "main.js"
+    ]
+  },
+  "assets": [
+    {
+      "type": "asset",
+      "name": "main.js",
+      "size": 3233,
+      "emitted": false,
+      "comparedForEmit": true,
+      "cached": false,
+      "info": {
+        "javascriptModule": false,
+        "related": {
+          "sourceMap": "main.js.map"
+        },
+        "size": 3233
+      },
+      "chunkNames": [
+        "main"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 0,
+      "related": [
+        {
+          "type": "sourceMap",
+          "name": "main.js.map",
+          "size": 2170,
+          "emitted": false,
+          "comparedForEmit": true,
+          "cached": false,
+          "info": {
+            "development": true,
+            "size": 2170
+          },
+          "chunkNames": [],
+          "chunkIdHints": [],
+          "auxiliaryChunkNames": [
+            "main"
+          ],
+          "auxiliaryChunkIdHints": [],
+          "related": {},
+          "chunks": [],
+          "auxiliaryChunks": [
+            "main"
+          ],
+          "isOverSizeLimit": false
+        }
+      ],
+      "chunks": [
+        "main"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    }
+  ],
+  "chunks": [
+    {
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "recorded": false,
+      "size": 1004,
+      "sizes": {
+        "javascript": 1004
+      },
+      "names": [
+        "main"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "main.js"
+      ],
+      "auxiliaryFiles": [
+        "main.js.map"
+      ],
+      "hash": "6431912f0945637c55f1",
+      "childrenByOrder": {},
+      "id": "main",
+      "siblings": [],
+      "parents": [],
+      "children": [],
+      "modules": [
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 799,
+          "sizes": {
+            "javascript": 799
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "name": "./src/index.ts",
+          "nameForCondition": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "index": 0,
+          "preOrderIndex": 0,
+          "index2": 1,
+          "postOrderIndex": 1,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": false,
+          "issuer": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "./src/index.ts",
+          "issuerId": null,
+          "chunks": [
+            "main"
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "2:23-27",
+              "moduleId": "./src/index.ts",
+              "resolvedModuleId": "./src/index.ts"
+            },
+            {
+              "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "2:31-51",
+              "moduleId": "./src/index.ts",
+              "resolvedModuleId": "./src/index.ts"
+            },
+            {
+              "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "13:20-24",
+              "moduleId": "./src/index.ts",
+              "resolvedModuleId": "./src/index.ts"
+            },
+            {
+              "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "13:28-45",
+              "moduleId": "./src/index.ts",
+              "resolvedModuleId": "./src/index.ts"
+            },
+            {
+              "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "cjs self exports reference",
+              "active": true,
+              "explanation": "",
+              "userRequest": null,
+              "loc": "17:32-39",
+              "moduleId": "./src/index.ts",
+              "resolvedModuleId": "./src/index.ts"
+            },
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": "entry",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./src/index.ts",
+              "loc": "main",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "resolvedModuleIdentifier": null,
+              "resolvedModule": null,
+              "type": null,
+              "active": true,
+              "explanation": "used as library export",
+              "userRequest": null,
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": null,
+          "providedExports": null,
+          "optimizationBailout": [
+            "CommonJS bailout: this is used directly at 2:23-27",
+            "CommonJS bailout: this is used directly at 13:20-24",
+            "CommonJS bailout: exports is used directly at 17:32-39"
+          ],
+          "depth": 0
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 205,
+          "sizes": {
+            "javascript": 205
+          },
+          "built": true,
+          "codeGenerated": true,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/util.ts",
+          "name": "./src/util.ts",
+          "nameForCondition": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/util.ts",
+          "index": 1,
+          "preOrderIndex": 1,
+          "index2": 0,
+          "postOrderIndex": 0,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "dependent": true,
+          "issuer": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "issuerName": "./src/index.ts",
+          "issuerPath": [
+            {
+              "identifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "name": "./src/index.ts",
+              "id": "./src/index.ts"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": "./src/util.ts",
+          "issuerId": "./src/index.ts",
+          "chunks": [
+            "main"
+          ],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "module": "./src/index.ts",
+              "moduleName": "./src/index.ts",
+              "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+              "resolvedModule": "./src/index.ts",
+              "type": "cjs require",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./util",
+              "loc": "17:13-30",
+              "moduleId": "./src/index.ts",
+              "resolvedModuleId": "./src/index.ts"
+            }
+          ],
+          "usedExports": null,
+          "providedExports": [
+            "__esModule",
+            "sum"
+          ],
+          "optimizationBailout": [],
+          "depth": 1
+        }
+      ],
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "./src/index.ts"
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 799,
+      "sizes": {
+        "javascript": 799
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+      "name": "./src/index.ts",
+      "nameForCondition": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+      "index": 0,
+      "preOrderIndex": 0,
+      "index2": 1,
+      "postOrderIndex": 1,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "./src/index.ts",
+      "issuerId": null,
+      "chunks": [
+        "main"
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "2:23-27",
+          "moduleId": "./src/index.ts",
+          "resolvedModuleId": "./src/index.ts"
+        },
+        {
+          "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "2:31-51",
+          "moduleId": "./src/index.ts",
+          "resolvedModuleId": "./src/index.ts"
+        },
+        {
+          "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "13:20-24",
+          "moduleId": "./src/index.ts",
+          "resolvedModuleId": "./src/index.ts"
+        },
+        {
+          "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "13:28-45",
+          "moduleId": "./src/index.ts",
+          "resolvedModuleId": "./src/index.ts"
+        },
+        {
+          "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "cjs self exports reference",
+          "active": true,
+          "explanation": "",
+          "userRequest": null,
+          "loc": "17:32-39",
+          "moduleId": "./src/index.ts",
+          "resolvedModuleId": "./src/index.ts"
+        },
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": "entry",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./src/index.ts",
+          "loc": "main",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "resolvedModuleIdentifier": null,
+          "resolvedModule": null,
+          "type": null,
+          "active": true,
+          "explanation": "used as library export",
+          "userRequest": null,
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": null,
+      "providedExports": null,
+      "optimizationBailout": [
+        "CommonJS bailout: this is used directly at 2:23-27",
+        "CommonJS bailout: this is used directly at 13:20-24",
+        "CommonJS bailout: exports is used directly at 17:32-39"
+      ],
+      "depth": 0
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 205,
+      "sizes": {
+        "javascript": 205
+      },
+      "built": true,
+      "codeGenerated": true,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/util.ts",
+      "name": "./src/util.ts",
+      "nameForCondition": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/util.ts",
+      "index": 1,
+      "preOrderIndex": 1,
+      "index2": 0,
+      "postOrderIndex": 0,
+      "cacheable": true,
+      "optional": false,
+      "orphan": false,
+      "issuer": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+      "issuerName": "./src/index.ts",
+      "issuerPath": [
+        {
+          "identifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "name": "./src/index.ts",
+          "id": "./src/index.ts"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": "./src/util.ts",
+      "issuerId": "./src/index.ts",
+      "chunks": [
+        "main"
+      ],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "module": "./src/index.ts",
+          "moduleName": "./src/index.ts",
+          "resolvedModuleIdentifier": "/Users/wangyiheng/code/self-code/webpack-lib/test-lib/node_modules/ts-loader/index.js!/Users/wangyiheng/code/self-code/webpack-lib/test-lib/src/index.ts",
+          "resolvedModule": "./src/index.ts",
+          "type": "cjs require",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./util",
+          "loc": "17:13-30",
+          "moduleId": "./src/index.ts",
+          "resolvedModuleId": "./src/index.ts"
+        }
+      ],
+      "usedExports": null,
+      "providedExports": [
+        "__esModule",
+        "sum"
+      ],
+      "optimizationBailout": [],
+      "depth": 1
+    }
+  ],
+  "entrypoints": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 3233
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 3233,
+      "auxiliaryAssets": [
+        {
+          "name": "main.js.map",
+          "size": 2170
+        }
+      ],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 2170,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        {
+          "name": "main.js",
+          "size": 3233
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": 3233,
+      "auxiliaryAssets": [
+        {
+          "name": "main.js.map",
+          "size": 2170
+        }
+      ],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 2170,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "errors": [],
+  "errorsCount": 0,
+  "warnings": [],
+  "warningsCount": 0,
+  "children": []
+}
